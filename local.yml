@@ -1,4 +1,4 @@
-- name: Ansible instalacja kasy z ekranem niedotykowym
+- name: Ansible instalacja kasy z ekranem niedotykowym 2.2.15
   hosts: localhost
   user: root
   connection: local
@@ -29,6 +29,7 @@
         key: "{{ lookup('file', '/tmp/pub2') }}"
         validate_certs: no
         state: present
+
     - name: Dodanie klucza publicznego do root
       authorized_key:
         user: root
@@ -58,6 +59,15 @@
     - name: Zmiana hostname na kasaX    
       hostname:
         name: kasaX
+
+    - name: Wylaczenie update apta na czas instalacji
+      systemd:
+        state: stopped
+        name: "{{ item }}"
+      loop:
+        - apt-daily.service
+        - apt-daily.timer
+        - apt-daily-upgrade.timer        
 
     - name: Usuniecie paczek gnome, kde, lightdm
       apt:
