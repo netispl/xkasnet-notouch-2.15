@@ -94,6 +94,7 @@
         - gawk
         - lynx
         - cups-bsd
+        - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - kasnet-server  
         - xkasnet-client-autostart-2.2.15
