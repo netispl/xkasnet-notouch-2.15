@@ -5,6 +5,15 @@
   tasks:
     - include_vars: key_vault.yml
 
+    - name: Wylaczenie update apta na czas instalacji
+      systemd:
+        state: stopped
+        name: "{{ item }}"
+      loop:
+        - apt-daily.service
+        - apt-daily.timer
+        - apt-daily-upgrade.timer        
+
     - copy: content="{{  secret_key }}" dest="/tmp/klucz.apt"
     - copy: content="{{  brama_public_key }}" dest="/tmp/pub1"
     - copy: content="{{  ansible_public_key }}" dest="/tmp/pub2"
@@ -51,20 +60,10 @@
               password {{ repo_pass }}
           create: yes        
 
-    - name: Wylaczenie update apta na czas instalacji
-      systemd:
-        state: stopped
-        name: "{{ item }}"
-      loop:
-        - apt-daily.service
-        - apt-daily.timer
-        - apt-daily-upgrade.timer        
-
       
     - apt_repository:
         repo: "{{ repo_netis }}"
         state: present
-        
         
     - name: Zmiana hostname na kasaX    
       hostname:
