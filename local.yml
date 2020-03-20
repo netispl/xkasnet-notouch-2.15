@@ -104,6 +104,7 @@
         - gawk
         - lynx
         - cups-bsd
+        - xorg
         - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - kasnet-server  
