@@ -105,6 +105,8 @@
         - lynx
         - cups-bsd
         - xorg
+        - ifupdown
+        - net-tools
         - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - kasnet-server  
