@@ -163,7 +163,7 @@
         force: yes
         update_cache: yes
       loop:
-        - kasnet-server-2.1.326
+        - kasnet-server-2.1.325
         - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - xkasnet-client-autostart-2.2.15
