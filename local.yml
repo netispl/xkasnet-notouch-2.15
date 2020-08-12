@@ -112,7 +112,7 @@
         - xorg
         - ifupdown
         - net-tools
-        - kasnet-server
+        - kasnet-server-2.1.326
         - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - xkasnet-client-autostart-2.2.15
