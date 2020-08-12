@@ -112,7 +112,7 @@
         - xorg
         - ifupdown
         - net-tools
-        - kasnet-server-2.1.326
+        - kasnet-server
         - xkasnet-client-2.2.15
         - xkasnet-client-notouch-2.2.15
         - xkasnet-client-autostart-2.2.15
@@ -162,13 +162,13 @@
                   line="PermitRootLogin yes"
                   state=present
 
-                  #    - name: chmod /home/xkasnet
-                  #      file:
-                  #        path: /home/xkasnet/
-                  #        state: directory
-                  #        recurse: yes
-                  #        owner: kasa
-                  #        group: kasa
+    - name: chmod /home/xkasnet
+      file:
+        path: /home/xkasnet/
+        state: directory
+        recurse: yes
+        owner: kasa
+        group: kasa
  
     - name: Restart komputera
       command: reboot
