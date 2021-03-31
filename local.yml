@@ -197,6 +197,11 @@
                   line="DNS=8.8.8.8"
                   state=present
 
+    - name: 'add socket_kasy to zmienne.dat'
+      lineinfile:
+        path: /home/kasa/konfiguracja/zmienne.dat
+        line: "socket_kasy /var/run/mysqld/mysqld.sock"
+
     - name: Restart resolvd
       systemd:
          state: restarted
